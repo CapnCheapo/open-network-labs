@@ -103,9 +103,10 @@ Difficulty is indicated via metadata, not folder placement.
 
 Most labs are built using:
 - [containerlab](https://containerlab.dev/)
+- [labhost-lite](https://github.com/CapnCheapo/labhost-lite) a freely-available docker container to simulate end-hosts.
 - containerized network operating systems or routing stacks
 
-Device images are **not** distributed with this repository.
+** Device images are not distributed with this repository. Do not ask us for them! **
 Each lab README documents what images are required.
 
 ---
