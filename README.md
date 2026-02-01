@@ -43,18 +43,18 @@ If you can explain *why* the lab works when you’re done, it succeeded.
 
 Each lab follows a consistent structure:
 
-lab-name/
-├── lab.meta.yml # Metadata (topics, difficulty, prerequisites, etc.)
-├── starter/ # Starting point for the learner
-│ ├── topology.clab.yml
-│ ├── configs/
-│ └── README.md
-├── solution/ # One possible completed solution
-│ ├── topology.clab.yml
-│ ├── configs/
-│ └── README.md
-└── check/ # (Optional) Validation scripts
-└── validate.sh
+  lab-name/
+  ├── lab.meta.yml # Metadata (topics, difficulty, prerequisites, etc.)
+  ├── starter/ # Starting point for the learner
+  │ ├── topology.clab.yml
+  │ ├── configs/
+  │ └── README.md
+  ├── solution/ # One possible completed solution
+  │ ├── topology.clab.yml
+  │ ├── configs/
+  │ └── README.md
+  └── check/ # (Optional) Validation scripts
+  └── validate.sh
 
 ### Starter
 The **starter** directory gives you:
