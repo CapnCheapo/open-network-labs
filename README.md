@@ -56,6 +56,7 @@ lab-name/
 │ └── README.md
 └── check/ # (Optional) Validation scripts
 └── validate.sh
+```
 
 ### Starter
 The **starter** directory gives you:
