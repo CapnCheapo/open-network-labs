@@ -18,8 +18,6 @@ networking over time.
 Work through the lab, ask questions when you get stuck, and feel free to explore beyond the stated tasks. Break things. Fix them. With a single 
 command, you can always redeploy the lab back to its original state.
 
----
-
 ## Scenario
 You are a junior network technician with a simple task: two hosts must be able to communicate with each other.
 
@@ -32,15 +30,11 @@ destination.
 
 Your task is to determine whether communication is possible—and if not, why.
 
----
-
 ## Tasks
 1. Verify whether or not the two hosts can communicate with each other.
 2. If they cannot communicate, connect to `sw1` and perform basic verification.
 3. Make any necessary configuration changes on the switch to allow communication.
    ** Do not change any configuration on the hosts **
-
----
 
 ## Credentials
 Use the following credentials to access each device from your host system.
@@ -50,10 +44,10 @@ Use the following credentials to access each device from your host system.
 | pc2    | ssh lab@clab-basic-l2-connectivity-pc2 | lab |
 | sw1    | ssh admin@clab-basic-l2-connectivity-sw1 | admin |
 
----
 
 ## Hints (Read Only If Stuck)
 1. Basic connectivity testing tools such as `ping` will be useful on `pc1` and `pc2`.
+2. Pings on `pc1` and `pc2` will run indefinitely until `CTRL-C` is pressed.
 2. On `sw1`, entering privileged mode (`enable`) allows access to diagnostic commands.
 3. Interface status can be viewed using commands that show port state.
 4. Configuration mode is required to make changes to the switch.
