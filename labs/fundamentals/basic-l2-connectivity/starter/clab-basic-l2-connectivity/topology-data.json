@@ -1,0 +1,160 @@
+{
+  "name": "basic-l2-connectivity",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-4dd56b362f3e",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC5gaklvs6W7ur7emzGUmxC3rY1tf5q37AC2X+ilOpyJImxuvDWXhA1R3Wkkez/y0Pkm+tg1iHRSuecka5a7AoC1xhsszWtuRfhxHaoiMKXLBO1e18zki8zzuLLYrLkukUNHLmgyUD4qsgM/x0dV5QlZtYKjXVSHJjZVyhEGmnSyNCRq4lEVUpzlyHYbzWtIyF9d5KHSR6FCPB9XuJCnMGR+lIVvQSLcs8vdcNDEnQqtGQbYWpREvZhYfivGglwqwOJYyNCO+SYDFIrKQZ0JMhNYw3ykZszSszPT2KWlFfuSbAAKzeXsIaAC5skL431BgLCmpOYcZJEP5r1xSSTWYDm42XIUxAUBsjr3Rz84pD/KtCUFIfDU9maw9wWDHazuQkJJk+axW49dR3vt9+jwDMPr7nC+rEMKno8+dX5tJCxvQZlwkoidI3ygG1bZPoKK91w5H+qLEcc4lnbzfsw1mPMsDgcCA+pUHQE9hX+zDmFZYuw/nkGArnHMsVyisYwpZc="],
+  "nodes": {
+    "pc1": {
+      "index": "0",
+      "shortname": "pc1",
+      "longname": "clab-basic-l2-connectivity-pc1",
+      "fqdn": "pc1.basic-l2-connectivity.io",
+      "group": "server",
+      "labdir": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/clab-basic-l2-connectivity/pc1",
+      "kind": "linux",
+      "image": "ghcr.io/capncheapo/labhost-lite:1.0.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-4dd56b362f3e",
+        "clab-node-group": "server",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/clab-basic-l2-connectivity/pc1",
+        "clab-node-longname": "clab-basic-l2-connectivity-pc1",
+        "clab-node-name": "pc1",
+        "clab-node-type": "",
+        "clab-owner": "moores",
+        "clab-topo-file": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/topology.clab.yml",
+        "containerlab": "basic-l2-connectivity"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "pc2": {
+      "index": "1",
+      "shortname": "pc2",
+      "longname": "clab-basic-l2-connectivity-pc2",
+      "fqdn": "pc2.basic-l2-connectivity.io",
+      "group": "server",
+      "labdir": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/clab-basic-l2-connectivity/pc2",
+      "kind": "linux",
+      "image": "ghcr.io/capncheapo/labhost-lite:1.0.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-4dd56b362f3e",
+        "clab-node-group": "server",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/clab-basic-l2-connectivity/pc2",
+        "clab-node-longname": "clab-basic-l2-connectivity-pc2",
+        "clab-node-name": "pc2",
+        "clab-node-type": "",
+        "clab-owner": "moores",
+        "clab-topo-file": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/topology.clab.yml",
+        "containerlab": "basic-l2-connectivity"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "sw1": {
+      "index": "2",
+      "shortname": "sw1",
+      "longname": "clab-basic-l2-connectivity-sw1",
+      "fqdn": "sw1.basic-l2-connectivity.io",
+      "group": "switch",
+      "labdir": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/clab-basic-l2-connectivity/sw1",
+      "kind": "arista_ceos",
+      "image": "ceos:4.34.4M",
+      "mgmt-net": "",
+      "mgmt-intf": "Management0",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "00:1c:73:91:a3:93",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-4dd56b362f3e",
+        "clab-node-group": "switch",
+        "clab-node-kind": "arista_ceos",
+        "clab-node-lab-dir": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/clab-basic-l2-connectivity/sw1",
+        "clab-node-longname": "clab-basic-l2-connectivity-sw1",
+        "clab-node-name": "sw1",
+        "clab-node-type": "",
+        "clab-owner": "moores",
+        "clab-topo-file": "/home/moores/Documents/projects/open-network-labs/labs/fundamentals/basic-l2-connectivity/starter/topology.clab.yml",
+        "containerlab": "basic-l2-connectivity"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:3a:ea:c0",
+          "peer": "z"
+        },
+        "z": {
+          "node": "pc1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:98:39:d4",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sw1",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:9a:c7:4e",
+          "peer": "z"
+        },
+        "z": {
+          "node": "pc2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:0c:c0:3a",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}
