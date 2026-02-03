@@ -105,6 +105,10 @@ Most labs are built using:
 **Network Device images are not distributed with this repository-- do not ask us for them!** 
 Each lab README documents what images are required.
 
+## Where to Start
+
+Check out `docs/learning-paths` for curated lists of topics sorted by category. The `basic-l2-connectivity` lab is the perfect starting point for new 
+and seasoned network professionals alike.
 
 ## Contributing
 
