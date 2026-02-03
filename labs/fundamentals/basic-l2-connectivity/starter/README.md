@@ -34,7 +34,7 @@ Your task is to determine whether communication is possible—and if not, why.
 1. Verify whether or not the two hosts can communicate with each other.
 2. If they cannot communicate, connect to `sw1` and perform basic verification.
 3. Make any necessary configuration changes on the switch to allow communication.
-   ** Do not change any configuration on the hosts **
+   **Do not change any configuration on the hosts**
 
 ## Credentials
 Use the following credentials to access each device from your host system.
