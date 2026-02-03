@@ -10,7 +10,6 @@ The labs are designed to be:
 
 This project is not affiliated with any commercial training provider.
 
----
 
 ## Project Status
 
@@ -22,7 +21,6 @@ This project is **under active development**.
 
 If you’re evaluating this repository early, think of it as a **reference implementation** for how networking labs can be structured in an open, reproducible way.
 
----
 
 ## Philosophy
 
@@ -38,7 +36,6 @@ Each lab aims to:
 
 If you can explain *why* the lab works when you’re done, it succeeded.
 
----
 
 ## Lab Structure
 
@@ -81,7 +78,6 @@ Some labs may include lightweight validation scripts that check outcomes
 
 Validation checks **results**, not exact configuration syntax.
 
----
 
 ## Topics Covered
 
@@ -98,7 +94,6 @@ Over time, labs will span areas such as:
 
 Difficulty is indicated via metadata, not folder placement.
 
----
 
 ## Requirements
 
@@ -110,7 +105,6 @@ Most labs are built using:
 **Network Device images are not distributed with this repository-- do not ask us for them!** 
 Each lab README documents what images are required.
 
----
 
 ## Contributing
 
@@ -124,7 +118,6 @@ Before submitting a lab, please:
 
 See `CONTRIBUTING.md` for details.
 
----
 
 ## Why This Exists
 
