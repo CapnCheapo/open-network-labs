@@ -34,6 +34,7 @@ Each lab aims to:
 - define clear outcomes rather than exact commands
 - encourage exploration, verification, and troubleshooting
 - show one *possible* solution, not the only solution
+- provide optional further reading, both internally written and from external books, blogs, and RFCs
 
 If you can explain *why* the lab works when you’re done, it succeeded.
 
