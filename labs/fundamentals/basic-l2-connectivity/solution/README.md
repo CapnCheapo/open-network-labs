@@ -37,7 +37,7 @@ Ma0               connected    routed   a-full a-1G   10/100/1000
 sw1#conf t
 sw1(config)#interface Et1
 sw1(config-if-Et1)#no shutdown
-sw1(config-if-Et1)#interface E2
+sw1(config-if-Et1)#interface Et2
 sw1(config-if-Et2)#no shutdown
 ```
 
