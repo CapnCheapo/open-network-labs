@@ -95,7 +95,6 @@ default via 192.168.1.100 dev eth1
 
 12. pc2 can now ping 1.1.1.1.
 ```
-```
 PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=1.32 ms
 64 bytes from 1.1.1.1: icmp_seq=2 ttl=64 time=0.916 ms
