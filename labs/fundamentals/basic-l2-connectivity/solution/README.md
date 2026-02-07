@@ -4,7 +4,7 @@ Ports Et1 and Et2 were in a shutdown state.
 
 ## Walk-Through
 
-1. pc1 can't ping pc2
+1. pc1 can't ping pc2.
 ```
 pc1:~$ ping 192.168.1.2
 PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
@@ -13,7 +13,7 @@ PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
 9 packets transmitted, 0 received, 100% packet loss, time 8204ms
 ```
 
-2. pc2 can't ping pc1
+2. pc2 can't ping pc1.
 ```
 pc2:~$ ping 192.168.1.1
 PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.

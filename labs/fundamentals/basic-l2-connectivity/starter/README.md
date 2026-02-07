@@ -48,8 +48,8 @@ Use the following credentials to access each device from your host system.
 ## Hints (Read Only If Stuck)
 1. Basic connectivity testing tools such as `ping` will be useful on `pc1` and `pc2`.
 2. Pings on `pc1` and `pc2` will run indefinitely until `CTRL-C` is pressed.
-2. On `sw1`, entering privileged mode (`enable`) allows access to diagnostic commands.
-3. Interface status can be viewed using commands that show port state.
-4. Configuration mode is required to make changes to the switch.
-5. Interfaces may be administratively disabled.
-6. Changes may take a short time to take effect—be patient.
+3. On `sw1`, entering privileged mode (`enable`) allows access to diagnostic commands.
+4. Interface status can be viewed using commands that show port state.
+5. Configuration mode is required to make changes to the switch.
+6. Interfaces may be administratively disabled.
+7. Changes may take a short time to take effect—be patient.
