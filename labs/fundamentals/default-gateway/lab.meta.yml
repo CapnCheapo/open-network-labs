@@ -1,0 +1,57 @@
+title: Default Gateways
+
+authors: 
+  - name: CapnCheapo
+
+summary: >
+  Introduce the concept of a default gateway by observing how a host
+  handles traffic destined for non-local networks and how a single
+  configuration change enables off-subnet communication.
+
+category: fundamentals
+subcategory: routing
+
+difficulty: 1
+estimated_time: 15m
+
+topics:
+  - ip
+  - default-gateway
+  - host-routing
+  - subnet-boundaries
+
+prerequisites:
+  - basic-layer-2-connectivity
+  - basic-ip-addressing
+
+platforms:
+  - arista-ceos
+  - cisco-iol-l2
+  - cisco-iol
+  - generic-l2-switch
+
+images:
+  - arista cEOS (user-supplied, official vendor download required)
+  - labhost-lite (ghcr.io/capncheapo/labhost-lite:1.0.1)
+
+objectives:
+  - Identify how a host determines whether a destination is local or remote
+  - Observe host behavior when no default gateway is configured
+  - Configure a default gateway on a host
+  - Verify connectivity to a non-local destination
+
+verification:
+  - Hosts cannot reach off-subnet destinations without a default gateway
+  - Hosts can sucessfully reach off-subnet destinations after configuration
+  - Host routing table includes a default route
+
+outcomes:
+  - Understand the role of the default gateway in IP networking
+  - Recognize that routing decisions begin on the host
+  - Distinguish between local delivery and forwarded traffic
+  - Build intuition for next-hop forwarding
+
+notes:
+  - No configuration changes are needed on the router in this lab
+  - The router acts only as a forwarding device
+  - This lab focuses on host behavior, not routing protocols
