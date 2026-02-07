@@ -10,8 +10,8 @@ graph LR
   pc1["<fa:laptop> pc1"]
   pc2["<fa:laptop> pc2"]
 
-  classDef switch fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
-  classDef host fill:#f1f8e9,stroke:#33691e;
+  classDef switch fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000;
+  classDef host fill:#f1f8e9,stroke:#33691e,color:#000;
 
   class sw1 switch
   class pc1,pc2 host
