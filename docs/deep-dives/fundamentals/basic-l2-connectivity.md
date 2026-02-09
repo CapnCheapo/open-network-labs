@@ -21,7 +21,8 @@ CTRL-C is pressed.
 Since we were told no additional configuration would be needed on the PCs, it was time to connect into `sw1`. Our prompt showed the
 hostname and the `>` symbol. This symbol indicates we are in `user EXEC` mode. This is sometimes called unprivileged access. This mode
 will provide limited access to functions on the switch. To gain full access, we need to type `enable`. Depending on the configuration,
-the switch may ask for an additional password to `privileged EXEC` or enable mode. In this case, there is minimal configuration and we were let straight into the elevated mode, as signified by the `#` in the prompt. 
+the switch may ask for an additional password to `privileged EXEC` or enable mode. In this case, there is minimal configuration and we 
+were let straight into the elevated mode, as signified by the `#` in the prompt. 
 
 Most of a network engineer's time in privileged EXEC mode is spent running `show` commands. Just about everything a switch knows can
 be discovered through show commands. You will learn to pull out the most important information out of show commands. Other information 
