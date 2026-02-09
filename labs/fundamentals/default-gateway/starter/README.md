@@ -1,24 +1,21 @@
-# Default Gateway
-
+# Address Resolution
 ## Scenario
-The users of `pc1` and `pc2` report that they are unable to connect to the server at `1.1.1.1` and have requested assistance with troubleshooting.
+This lab is more of a discovery lab rather than a break-fix (although you can "fix" it if you want!)
 
-You have been provided the following information:
+The question is, if I take a switch out of the box, and plug 3 hosts in, they will be able to ping each other
+after the switch completes the boot process.
 
-- `pc1` has the IP address `192.168.1.1`
-- `pc2` has the IP address `192.168.1.2`
+But why? We didn't assign any IP address to the switch. How is this working at all?
 
-Your task is to determine why `192.168.1.1` and `192.168.1.2` cannot reach `1.1.1.1` and make any required configuration changes **on the hosts only**.
-
-A more senior network technician informs you that the router for this network is reachable at `192.168.1.100`.
+Can the switch ping any of the hosts?
 
 ---
 
 ## Tasks
-1. Verify whether `pc1` and `pc2` can communicate with each other.
-2. Verify whether `pc1` and `pc2` can communicate with the server at `1.1.1.1`.
+1. Verify whether `pc1`, `pc2`, and `pc3` can communicate with each other.
+2. Verify whether `sw1` can communicate with the PCs.
 3. Make any necessary configuration changes on `pc1` and `pc2` to restore connectivity.
-   - **Do not change any configuration on the switch or router.**
+   - **Do not change any configuration changes.**
 
 ---
 
@@ -29,16 +26,13 @@ Use the following credentials to access each device from your host system.
 | ------ | ------------- | -------- |
 | pc1    | `ssh lab@clab-default-gateway-pc1` | `lab` |
 | pc2    | `ssh lab@clab-default-gateway-pc2` | `lab` |
+| pc3    | `ssh lab@clab-default-gateway-pc3` | `lab` |
 | sw1    | `ssh admin@clab-default-gateway-sw1` | `admin` |
 
 ---
 
 ## Hints (Read Only If Stuck)
-1. Basic connectivity testing tools such as `ping` will be useful on `pc1` and `pc2`.
-2. Pings issued from `pc1` and `pc2` will run indefinitely until stopped with `CTRL-C`.
-3. The host routing table can be viewed using the `ip route` command.
-4. Administrative privileges are required to make network configuration changes.
-5. Some form of the `sudo ip route` command may be required.
-6. `eth0` should be ignored for this lab and must not be modified.
-7. `eth1` is the interface used for host communication in this lab.
-
+1. Basic connectivity testing tools such as `ping` will be useful.
+2. The command `ip neighbor` will be helpful on the PCs.
+3. The commands `show ip route` and `show mac address-table` might be useful on sw1.
+4. Don't wait very long between ping checks and verification on the switch, or you might miss important information.

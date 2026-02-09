@@ -1,0 +1,24 @@
+name: basic-connectivity 
+
+topology:
+  nodes:
+    sw1:
+      kind: arista_ceos
+      image: ceos:4.34.4M
+      startup-config: configs/sw1.cfg
+      group: switch
+    pc1:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 192.168.1.1/24 dev eth1
+    pc2:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 192.168.1.2/24 dev eth1
+  links:
+    - endpoints: ["sw1:eth1", "pc1:eth1"]
+    - endpoints: ["sw1:eth2", "pc2:eth1"]

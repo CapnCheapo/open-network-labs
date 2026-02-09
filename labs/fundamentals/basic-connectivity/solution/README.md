@@ -1,4 +1,4 @@
-# Basic L2 Connectivity
+# Basic Connectivity
 ## Solution
 Ports Et1 and Et2 were in a shutdown state.
 
@@ -77,7 +77,7 @@ rtt min/avg/max/mdev = 0.598/0.638/0.716/0.054 ms
 ```
 
 ## Deep-Dive
-See (https://github.com/CapnCheapo/open-network-labs/tree/main/docs/deep-dives/fundamentals/basic-l2-connectivity.md)
+See (https://github.com/CapnCheapo/open-network-labs/tree/main/docs/deep-dives/fundamentals/basic-connectivity.md)
 
 ## Next Steps
 
