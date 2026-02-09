@@ -27,7 +27,6 @@ prerequisites:
 platforms:
   - arista-ceos
   - cisco-iol-l2
-  - cisco-iol
   - generic-l2-switch
 
 images:
@@ -35,7 +34,6 @@ images:
   - labhost-lite (ghcr.io/capncheapo/labhost-lite:1.0.1)
 
 objectives:
-  - Identify how a host determines whether a destination is local or remote
   - Observe host behavior when no default gateway is configured
   - Configure a default gateway on a host
   - Verify connectivity to a non-local destination

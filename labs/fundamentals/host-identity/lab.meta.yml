@@ -1,0 +1,46 @@
+title: Host Identity
+
+authors: 
+  - name: CapnCheapo
+
+summary: >
+  Introduce basic IP address assignment and the point of the netmask in simple host communication.
+
+category: fundamentals
+subcategory: connectivity
+
+difficulty: 1
+estimated_time: 20m
+
+topics:
+  - ip
+  - subnet-boundaries
+
+prerequisites:
+  - basic-layer-2-connectivity
+
+platforms:
+  - arista-ceos
+  - cisco-iol-l2
+  - cisco-iol
+  - generic-l2-switch
+
+images:
+  - arista cEOS (user-supplied, official vendor download required)
+  - labhost-lite (ghcr.io/capncheapo/labhost-lite:1.0.1)
+
+objectives:
+  - Understand the IP address and netmask combination
+  - Configure a linux host with an IP address
+
+verification:
+  - Hosts in the local subnet can ping each other
+  - Hosts in the local subnet can not ping a host in another subnet
+
+outcomes:
+  - Understand how classful IP addresses are derived
+  - Recognize that the host determines the initial direction of packet flow
+
+notes:
+  - No configuration changes are needed on the router in this lab
+  - This lab focuses on host behavior, not routing protocols
