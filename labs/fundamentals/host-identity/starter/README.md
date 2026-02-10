@@ -29,7 +29,7 @@ Use the following credentials to access each device from your host system.
 
 | Device | Login Command | Password |
 | ------ | ------------- | -------- |
-| pc1    | `ssh lab@clab-host-identity` | `lab` |
+| pc1    | `ssh lab@clab-host-identity-pc1` | `lab` |
 | pc2    | `ssh lab@clab-host-identity-pc2` | `lab` |
 | pc3    | `ssh lab@clab-host-identity-pc3` | `lab` |
 | sw1    | `ssh admin@clab-host-identity-sw1` | `admin` |
