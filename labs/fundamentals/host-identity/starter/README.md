@@ -1,4 +1,4 @@
-# Default Gateway
+# Host Identity
 
 ## Scenario
 You have been asked to assign `pc1` an IP address in the same subnet as `pc2`. `pc3` should remain inaccessible by both hosts.
@@ -29,10 +29,10 @@ Use the following credentials to access each device from your host system.
 
 | Device | Login Command | Password |
 | ------ | ------------- | -------- |
-| pc1    | `ssh lab@clab-default-gateway-pc1` | `lab` |
-| pc2    | `ssh lab@clab-default-gateway-pc2` | `lab` |
-| pc3    | `ssh lab@clab-default-gateway-pc3` | `lab` |
-| sw1    | `ssh admin@clab-default-gateway-sw1` | `admin` |
+| pc1    | `ssh lab@clab-host-identity` | `lab` |
+| pc2    | `ssh lab@clab-host-identity-pc2` | `lab` |
+| pc3    | `ssh lab@clab-host-identity-pc3` | `lab` |
+| sw1    | `ssh admin@clab-host-identity-sw1` | `admin` |
 
 ---
 
