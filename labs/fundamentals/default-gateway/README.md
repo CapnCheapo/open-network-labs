@@ -10,7 +10,7 @@ graph LR
   pc1["<fa:laptop> pc1"]
   pc2["<fa:laptop> pc2"]
 
-  internet(( "<fa:cloud> 1.1.1.1" ))
+  internet((1.1.1.1))
 
   classDef switch fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000;
   classDef host fill:#f1f8e9,stroke:#33691e,color:#000;
