@@ -1,3 +1,4 @@
+```mermaid
 ---
 title: default-gateway
 ---
@@ -22,4 +23,4 @@ graph LR
   sw1 ---|"eth1"| pc1
   sw1 ---|"eth2"| pc2
   sw1 ---|"uplink"| internet
-
+```
