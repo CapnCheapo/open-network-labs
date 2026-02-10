@@ -50,28 +50,35 @@ rtt min/avg/max/mdev = 0.634/0.888/1.082/0.187 ms
 ```
 pc1:~$ ping 192.168.1.2
 PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
-64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=1.10 ms
-64 bytes from 192.168.1.2: icmp_seq=2 ttl=64 time=0.574 ms
+64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=0.628 ms
 ^C
 --- 192.168.1.2 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 1003ms
-rtt min/avg/max/mdev = 0.574/0.837/1.100/0.263 ms
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.628/0.628/0.628/0.000 ms
 pc1:~$ ping 192.168.1.3
 PING 192.168.1.3 (192.168.1.3) 56(84) bytes of data.
-64 bytes from 192.168.1.3: icmp_seq=1 ttl=64 time=0.949 ms
-64 bytes from 192.168.1.3: icmp_seq=2 ttl=64 time=0.634 ms
-64 bytes from 192.168.1.3: icmp_seq=3 ttl=64 time=1.08 ms
+64 bytes from 192.168.1.3: icmp_seq=1 ttl=64 time=0.918 ms
+64 bytes from 192.168.1.3: icmp_seq=2 ttl=64 time=0.664 ms
 ^C
 --- 192.168.1.3 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2037ms
-rtt min/avg/max/mdev = 0.634/0.888/1.082/0.187 ms
-pc1:~$ ip neighbor
-192.168.1.3 dev eth1 lladdr aa:c1:ab:22:3d:56 STALE 
-192.168.1.2 dev eth1 lladdr aa:c1:ab:0d:c4:52 STALE 
-3fff:172:20:20::1 dev eth0 lladdr 26:fb:84:a5:59:ce DELAY 
+2 packets transmitted, 2 received, 0% packet loss, time 1045ms
+rtt min/avg/max/mdev = 0.664/0.791/0.918/0.127 ms
+pc1:~$ ip neigh
+192.168.1.3 dev eth1 lladdr aa:c1:ab:c6:f8:8a REACHABLE 
+192.168.1.2 dev eth1 lladdr aa:c1:ab:bd:d7:41 REACHABLE 
 ```
 
-4. Sw1 learns the MAC addresses for each host and associates a port number with each MAC address.
+4. Here is what the request looks like from pc2's perspective. Pc1 broadcasts an ARP request to ask who is pc2, pc2 responds back to
+pc1 with its MAC address.
+```
+pc2:~$ sudo tcpdump -i eth1 arp
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+19:41:09.774850 ARP, Request who-has 192.168.1.2 tell 192.168.1.1, length 28
+19:41:09.774858 ARP, Reply 192.168.1.2 is-at aa:c1:ab:bd:d7:41 (oui Unknown), length 28
+```
+
+5. Sw1 learns the MAC addresses for each host and associates a port number with each MAC address.
 ```
 sw1#show mac address-table 
           Mac Address Table

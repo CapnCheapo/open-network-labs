@@ -1,0 +1,53 @@
+title: Address Resolution
+
+authors: 
+  - name: CapnCheapo
+
+summary: >
+  Introduce some of the fundamental layers in networking and
+  describe how routers and switches fit in. Discuss MAC addresses,
+  the ARP process, and why switches don't need an IP address to 
+  allow hosts to communicate.
+
+category: fundamentals
+subcategory: switching
+
+difficulty: 1
+estimated_time: 30m
+
+topics:
+  - ip
+  - mac-address
+  - layers
+  - arp
+
+prerequisites:
+  - basic-connectivity
+  - host-identity
+
+platforms:
+  - arista-ceos
+  - cisco-iol-l2
+  - generic-l2-switch
+
+images:
+  - arista cEOS (user-supplied, official vendor download required)
+  - labhost-lite (ghcr.io/capncheapo/labhost-lite:1.0.1)
+
+objectives:
+  - Observe hosts can ping each other without switch configuration
+  - Observe the ARP table on pc1 showing the MAC address for pc1 and pc2
+  - Observe the MAC address table on sw1 showing MAC addresses and ports for all devices
+
+verification:
+  - None
+
+outcomes:
+  - Understand the basics of layers in networking
+  - Understand the switch does not need an IP address to allow the hosts to forward
+  - Understand the makeup of the ARP table
+  - Understand the makeup of the MAC address table
+
+notes:
+  - No configuration changes are needed on any device in this lab
+  - This lab focuses on host behavior, not routing protocols
