@@ -11,7 +11,7 @@ graph LR
   classDef host fill:#f1f8e9,stroke:#33691e;
 
   class sw1 switch
-  class pc1,pc2 host
+  class pc1,pc2,pc3 host
 
   sw1 ---|"eth1"| pc1
   sw1 ---|"eth2"| pc2
