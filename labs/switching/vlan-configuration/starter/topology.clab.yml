@@ -1,0 +1,67 @@
+name: address-resolution
+
+topology:
+  nodes:
+    sw1:
+      kind: arista_ceos
+      image: ceos:4.34.4M
+      group: switch
+    sales1:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.101.100/24 dev eth1
+    sales2:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.101.101/24 dev eth1
+    sales3:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.101.102/24 dev eth1
+    marketing1:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.102.100/24 dev eth1
+    marketing2:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.102.101/24 dev eth1
+    accounting1:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.103.100/24 dev eth1
+    accounting2:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.103.101/24 dev eth1
+    accounting3:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.103.102/24 dev eth1
+
+
+  links:
+    - endpoints: ["sw1:eth1", "sales1:eth1"]
+    - endpoints: ["sw1:eth2", "sales2:eth1"]
+    - endpoints: ["sw1:eth3", "sales3:eth1"]
+    - endpoints: ["sw1:eth4", "marketing1:eth1"]
+    - endpoints: ["sw1:eth5", "marketing2:eth1"]
+    - endpoints: ["sw1:eth6", "accounting1:eth1"]
+    - endpoints: ["sw1:eth7", "accounting2:eth1"]
+    - endpoints: ["sw1:eth8", "accounting3:eth1"]

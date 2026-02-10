@@ -40,9 +40,9 @@ Your task is to determine whether communication is possible—and if not, why.
 Use the following credentials to access each device from your host system.
 | Device | Login Command | Password |
 | ------ | ------------- | -------- |
-| pc1    | ssh lab@clab-basic-l2-connectivity-pc1 | lab |
-| pc2    | ssh lab@clab-basic-l2-connectivity-pc2 | lab |
-| sw1    | ssh admin@clab-basic-l2-connectivity-sw1 | admin |
+| pc1    | ssh lab@clab-basic-connectivity-pc1 | lab |
+| pc2    | ssh lab@clab-basic-connectivity-pc2 | lab |
+| sw1    | ssh admin@clab-basic-connectivity-sw1 | admin |
 
 
 ## Hints (Read Only If Stuck)

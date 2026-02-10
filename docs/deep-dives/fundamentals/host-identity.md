@@ -58,9 +58,4 @@ things up beyond the octet boundary, it's a common mistake for somebody to get t
 introduce subtle accessibility problems. 
 
 ## Suggested Resources
-- [Practical Networking -- Network Devices](https://www.youtube.com/watch?v=bj-Yfakjllc&list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi&index=1&pp=iAQB)
-- [Practical Networking -- Subnetting Mastery](https://www.youtube.com/playlist?list=PLIFyRwBY_4bQUE4IB5c4VPRyDoLgOdExE)
-- [Subnetting Practice](https://subnetipv4.com/)
-- Cisco Press, *CCNA 200-301 Official Cert Guide*, Chapter 1
-- O’Reilly, *Computer Networking: A Top-Down Approach*, Section 1.4
-- RFC 1122 – Requirements for Internet Hosts
+- TBD

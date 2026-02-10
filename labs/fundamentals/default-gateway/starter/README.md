@@ -1,21 +1,26 @@
-# Address Resolution
+# Default Gateway
+
 ## Scenario
-This lab is more of a discovery lab rather than a break-fix (although you can "fix" it if you want!)
+You have been asked to assign `pc1` an IP address in the same subnet as `pc2`. `pc3` should remain inaccessible by both hosts.
 
-The question is, if I take a switch out of the box, and plug 3 hosts in, they will be able to ping each other
-after the switch completes the boot process.
+You have been provided the following information:
 
-But why? We didn't assign any IP address to the switch. How is this working at all?
+- `pc1` has the IP address ???
+- `pc2` has the IP address ???
+- `pc3` has the IP address `192.168.123.100`
 
-Can the switch ping any of the hosts?
+Your task is to make configuration change(s) on `pc1` so that it can communicate with `pc2` but not `pc3`.
+**No configuration should be changed on `pc2`, `pc3`, or `sw1`.**
 
 ---
 
 ## Tasks
-1. Verify whether `pc1`, `pc2`, and `pc3` can communicate with each other.
-2. Verify whether `sw1` can communicate with the PCs.
-3. Make any necessary configuration changes on `pc1` and `pc2` to restore connectivity.
-   - **Do not change any configuration changes.**
+1. Investigate the IP address and netmask of `pc2`.
+2. Investigate the IP address and netmask of `pc3`.
+3. Assign `pc1` an appropriate IP adddress and netmask.
+   - **Do not change any configuration on the other PCs or switch.**
+4. Verify `pc1` can ping `pc2`.
+5. Verify `pc1` cannot ping `pc3`.
 
 ---
 
@@ -32,7 +37,8 @@ Use the following credentials to access each device from your host system.
 ---
 
 ## Hints (Read Only If Stuck)
-1. Basic connectivity testing tools such as `ping` will be useful.
-2. The command `ip neighbor` will be helpful on the PCs.
-3. The commands `show ip route` and `show mac address-table` might be useful on sw1.
-4. Don't wait very long between ping checks and verification on the switch, or you might miss important information.
+1. `ip address show dev eth1` will show IP configuration on a linux device.
+2. Interface eth0 is not directly involved with this lab and should not be changed.
+3. A netmask of /24 (255.255.255.0) means the first 3 numbers must match, and the 4th should be unique.
+4. Administrative privileges are required to make network configuration changes.
+5. The command `sudo ip address add ip/subnet dev eth1` should be used.

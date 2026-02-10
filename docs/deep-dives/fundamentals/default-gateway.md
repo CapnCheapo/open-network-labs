@@ -138,9 +138,4 @@ parties involved so that end-to-end troubleshooting can be done, but always reme
 there is a problem with a router or switch.
 
 ## Suggested Resources
-- [Practical Networking -- Network Devices](https://www.youtube.com/watch?v=bj-Yfakjllc&list=PLIFyRwBY_4bRLmKfP1KnZA6rZbRHtxmXi&index=1&pp=iAQB)
-- [Practical Networking -- Subnetting Mastery](https://www.youtube.com/playlist?list=PLIFyRwBY_4bQUE4IB5c4VPRyDoLgOdExE)
-- [Subnetting Practice](https://subnetipv4.com/)
-- Cisco Press, *CCNA 200-301 Official Cert Guide*, Chapter 1
-- O’Reilly, *Computer Networking: A Top-Down Approach*, Section 1.4
-- RFC 1122 – Requirements for Internet Hosts
+- TBD

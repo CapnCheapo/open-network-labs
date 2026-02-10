@@ -1,111 +1,63 @@
 # Default Gateway
 ## Solution
-The hosts were missing the default gateway configuration. As a result, traffic destined for non-local networks had no next hop and was never forwarded off the local subnet.
+pc1 needed an IP address and netmask assignment out of the 192.168.50.0/24 subnet.
 
 ## Walk-Through
 
-1. pc1 can ping pc2.
+1. The interface configuration is inspected on pc2.
 ```
-pc1:~$ ping 192.168.1.2
-PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
-64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=0.676 ms
-64 bytes from 192.168.1.2: icmp_seq=2 ttl=64 time=0.564 ms
-^C
---- 192.168.1.2 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 1006ms
-```
-
-2. pc2 can ping pc1. Local network connectivity is confirmed.
-```
-pc2:~$ ping 192.168.1.1
-PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
-64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.689 ms
-64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.544 ms
-64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.619 ms
-^C
---- 192.168.1.1 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2036ms
-rtt min/avg/max/mdev = 0.544/0.617/0.689/0.059 ms
+pc2:~$ ip address show dev eth1
+57: eth1@if56: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue state UP group default 
+    link/ether aa:c1:ab:68:94:d6 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet 192.168.50.50/24 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a8c1:abff:fe68:94d6/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever
 ```
 
-3. pc1 can't ping 1.1.1.1.
+2. pc1 can be assigned any address in 192.168.60.x other than .0, .50, or greater than .254.
 ```
-pc1:~$ ping 1.1.1.1
+pc1:~$ sudo ip address add 182.168.50.1/24 dev eth1
+pc1:~$ ip address show dev eth1
+61: eth1@if62: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue state UP group default 
+    link/ether aa:c1:ab:81:4b:6a brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet 192.168.50.1/24 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a8c1:abff:fe81:4b6a/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever
+```
+
+3. pc1 can ping pc2.
+```
+pc1:~$ ping 192.168.50.50
+PING 192.168.50.50 (192.168.50.50) 56(84) bytes of data.
+64 bytes from 192.168.50.50: icmp_seq=1 ttl=64 time=1.12 ms
+64 bytes from 192.168.50.50: icmp_seq=2 ttl=64 time=0.675 ms
+^C
+--- 192.168.50.50 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 0.675/0.898/1.122/0.223 ms
+```
+
+4. pc3 is located in subnet 192.168.123.0/24.
+```
+pc3:~$ ip address show eth1
+60: eth1@if59: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue state UP group default 
+    link/ether aa:c1:ab:72:8f:8e brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet 192.168.123.100/24 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a8c1:abff:fe72:8f8e/64 scope link proto kernel_ll 
+       valid_lft forever preferred_lft forever1
+```
+
+5. pc1 is not able to ping 192.168.123.100.
+```
+pc1:~$ ping 192.168.123.100
 ping: connect: Network unreachable
-```
-
-4. pc2 can't ping 1.1.1.1.
-```
-pc2:~$ ping 1.1.1.1
-ping: connect: Network unreachable
-```
-
-5. Routing table on pc1 is checked. Only local networks are shown.
-```
-pc1:~$ ip route
-172.20.20.0/24 dev eth0 proto kernel scope link src 172.20.20.4 
-192.168.1.0/24 dev eth1 proto kernel scope link src 192.168.1.1
-```
-
-6. Default gateway is added on pc1.
-```
-pc1:~$ sudo ip route add default via 192.168.1.100 dev eth1
-```
-
-7. Routing table is checked again. A default gateway of 192.168.1.100 is now shown.
-```
-pc1:~$ ip route
-default via 192.168.1.100 dev eth1 
-172.20.20.0/24 dev eth0 proto kernel scope link src 172.20.20.4 
-192.168.1.0/24 dev eth1 proto kernel scope link src 192.168.1.1 
-```
-
-8. pc1 can now ping 1.1.1.1.
-```
-pc1:~$ ping 1.1.1.1
-PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
-64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=1.28 ms
-64 bytes from 1.1.1.1: icmp_seq=2 ttl=64 time=0.737 ms
-64 bytes from 1.1.1.1: icmp_seq=3 ttl=64 time=0.762 ms
-^C
---- 1.1.1.1 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2010ms
-rtt min/avg/max/mdev = 0.737/0.924/1.275/0.247 ms
-```
-
-9. Routing table on pc2 is checked. Only local networks are shown.
-```
-pc2:~$ ip route
-172.20.20.0/24 dev eth0 proto kernel scope link src 172.20.20.3 
-192.168.1.0/24 dev eth1 proto kernel scope link src 192.168.1.2
-```
-
-10. Default gateway is added on pc2.
-```
-pc2:~$ sudo ip route add default via 192.168.1.100 dev eth1
-```
-
-11. Routing table is checked again.
-```
-pc2:~$ ip route
-default via 192.168.1.100 dev eth1 
-172.20.20.0/24 dev eth0 proto kernel scope link src 172.20.20.3 
-192.168.1.0/24 dev eth1 proto kernel scope link src 192.168.1.2 
-```
-
-12. pc2 can now ping 1.1.1.1.
-```
-PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
-64 bytes from 1.1.1.1: icmp_seq=1 ttl=64 time=1.32 ms
-64 bytes from 1.1.1.1: icmp_seq=2 ttl=64 time=0.916 ms
-^C
---- 1.1.1.1 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 1004ms
-rtt min/avg/max/mdev = 0.916/1.120/1.324/0.204 ms
 ```
 
 ## Deep-Dive
-See (https://github.com/CapnCheapo/open-network-labs/tree/main/docs/deep-dives/fundamentals/default-gateway.md)
+See (https://github.com/CapnCheapo/open-network-labs/tree/main/docs/deep-dives/fundamentals/host-identity.md)
 
 ## Next Steps
 

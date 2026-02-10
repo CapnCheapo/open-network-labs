@@ -1,0 +1,50 @@
+title: VLAN Configuration
+
+authors: 
+  - name: CapnCheapo
+
+summary: >
+  Place groups of hosts into compartmentalized areas of the switch where they can talk to each
+  other, but not hosts in other areas.
+
+category: switching
+subcategory: vlans
+
+difficulty: 1
+estimated_time: 30m
+
+topics:
+  - layer-2
+  - ethernet
+  - vlans
+
+prerequisites: []
+
+platforms:
+  - arista-ceos
+  - cisco-iol-l2
+  - generic-l2-switch
+
+images:
+  - arista cEOS (user-supplied, official vendor download required)
+  - labhost-lite (ghcr.io/capncheapo/labhost-lite:1.0.1)
+
+objectives:
+  - Group functional areas by VLAN and decide on a numbering scheme
+  - VLAN names should match functional areas
+  - Make appropriate configuration changes on the switch
+  - Validate connectivity using basic network testing tools
+
+verification:
+  - Hosts in one functional area can ping each other
+  - Hosts outside of a functional area cannot ping each other
+
+outcomes:
+  - Understand how VLANs can isolate groups of devices on a switch  
+  - Learn basic switch configuration
+  - Reinforce basic testing tools
+
+notes:
+  - Layer 3 support has been disabled on this switch and should not be configured
+  - The same principles apply across most enterprise switching platforms
+
