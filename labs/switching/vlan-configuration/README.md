@@ -1,6 +1,6 @@
 ```mermaid
 ---
-title: address-resolution
+title: vlan-configuration
 ---
 graph LR
   sales1["<fa:laptop> sales1"]

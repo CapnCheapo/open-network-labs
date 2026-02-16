@@ -68,4 +68,4 @@ troubleshooting the switch configuration, you may have noticed the pings did not
 This has to do with a technology called *spanning tree* and will be covered in future labs. 
 
 ## Suggested Resources
-- TBD
+- CCNA 200-301 Official Cert Guide, Volume 1, Chapter 3 (ICMP Echo and the ping Command), Chapter 4, Chapter 7

@@ -1,99 +1,101 @@
-# Address Resolution
+# VLAN Configuration 
 ## Solution
-The switch does not need an IP address for pc1, pc2, and pc3 to communicate with each other.
+Create VLANs 2, 3, and 4. Assign each switchport to the appropriate VLAN.
 
 ## Walk-Through
-1. Sw1 is unable to ping pc1, pc2, or pc3.
+1. Create VLANs through VLAN configuration mode, then assign ports.
 ```
 sw1>en
-sw1#ping 192.168.1.1
-PING 192.168.1.1 (192.168.1.1) 72(100) bytes of data.
-
---- 192.168.1.1 ping statistics ---
-5 packets transmitted, 0 received, 100% packet loss, time 40ms
-
-sw1#ping 192.168.1.2
-PING 192.168.1.2 (192.168.1.2) 72(100) bytes of data.
-
---- 192.168.1.2 ping statistics ---
-5 packets transmitted, 0 received, 100% packet loss, time 40ms
-
-sw1#ping 192.168.1.3 
-PING 192.168.1.3 (192.168.1.3) 72(100) bytes of data.
-
---- 192.168.1.3 ping statistics ---
-5 packets transmitted, 0 received, 100% packet loss, time 40ms
+sw1#conf t
+sw1(config)#vlan 2
+sw1(config-vlan-2)#name Sales
+sw1(config-vlan-2)#vlan 3
+sw1(config-vlan-3)#name Marketing
+sw1(config-vlan-3)#vlan 4
+sw1(config-vlan-4)#name Accounting
+sw1(config-vlan-4)#exit
+sw1(config)#int eth1-3
+sw1(config-if-Et1-3)#switchport access vlan 2
+sw1(config-if-Et1-3)#int eth4-5
+sw1(config-if-Et4-5)#switchport access vlan 3
+sw1(config-if-Et4-5)#int eth6-8
+sw1(config-if-Et6-8)#switchport access vlan 4
+sw1(config-if-Et6-8)#end
 ```
 
-2. Pc1 is able to ping pc2 and pc3.
+2. Verify the VLANs have been created and port assignment is correct.
 ```
-pc1:~$ ping 192.168.1.2
-PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
-64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=1.10 ms
-64 bytes from 192.168.1.2: icmp_seq=2 ttl=64 time=0.574 ms
+sw1#show vlan brief
+VLAN  Name                             Status    Ports
+----- -------------------------------- --------- -------------------------------
+1     default                          active    
+2     Sales                            active    Et1, Et2, Et3
+3     Marketing                        active    Et4, Et5
+4     Accounting                       active    Et6, Et7, Et8
+```
+
+3. Verify sales1 can ping sales2 and sales3, but not any other host.
+```
+sales1:~$ ping 10.10.102.102
+PING 10.10.102.102 (10.10.102.102) 56(84) bytes of data.
+64 bytes from 10.10.102.102: icmp_seq=1 ttl=64 time=1.30 ms
+64 bytes from 10.10.102.102: icmp_seq=2 ttl=64 time=0.647 ms
 ^C
---- 192.168.1.2 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 1003ms
-rtt min/avg/max/mdev = 0.574/0.837/1.100/0.263 ms
-pc1:~$ ping 192.168.1.3
-PING 192.168.1.3 (192.168.1.3) 56(84) bytes of data.
-64 bytes from 192.168.1.3: icmp_seq=1 ttl=64 time=0.949 ms
-64 bytes from 192.168.1.3: icmp_seq=2 ttl=64 time=0.634 ms
-64 bytes from 192.168.1.3: icmp_seq=3 ttl=64 time=1.08 ms
+--- 10.10.102.102 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 0.647/0.974/1.301/0.327 ms
+sales1:~$ ping 10.10.102.103
+PING 10.10.102.103 (10.10.102.103) 56(84) bytes of data.
+64 bytes from 10.10.102.103: icmp_seq=1 ttl=64 time=1.13 ms
+64 bytes from 10.10.102.103: icmp_seq=2 ttl=64 time=0.602 ms
 ^C
---- 192.168.1.3 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2037ms
-rtt min/avg/max/mdev = 0.634/0.888/1.082/0.187 ms
-```
-
-3. Pc1 has used ARP to translate IP addresses into Layer 2 (MAC) addresses.
-```
-pc1:~$ ping 192.168.1.2
-PING 192.168.1.2 (192.168.1.2) 56(84) bytes of data.
-64 bytes from 192.168.1.2: icmp_seq=1 ttl=64 time=1.10 ms
-64 bytes from 192.168.1.2: icmp_seq=2 ttl=64 time=0.574 ms
+--- 10.10.102.103 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 0.602/0.867/1.132/0.265 ms
+sales1:~$ ping 10.10.104.101
+PING 10.10.104.101 (10.10.104.101) 56(84) bytes of data.
 ^C
---- 192.168.1.2 ping statistics ---
-2 packets transmitted, 2 received, 0% packet loss, time 1003ms
-rtt min/avg/max/mdev = 0.574/0.837/1.100/0.263 ms
-pc1:~$ ping 192.168.1.3
-PING 192.168.1.3 (192.168.1.3) 56(84) bytes of data.
-64 bytes from 192.168.1.3: icmp_seq=1 ttl=64 time=0.949 ms
-64 bytes from 192.168.1.3: icmp_seq=2 ttl=64 time=0.634 ms
-64 bytes from 192.168.1.3: icmp_seq=3 ttl=64 time=1.08 ms
+--- 10.10.104.101 ping statistics ---
+5 packets transmitted, 0 received, 100% packet loss, time 4109ms
+```
+
+4. Verify accounting1 can ping accounting2 and accounting3, but not any other host.
+```
+accounting1:~$ ping 10.10.104.102
+PING 10.10.104.102 (10.10.104.102) 56(84) bytes of data.
+64 bytes from 10.10.104.102: icmp_seq=1 ttl=64 time=1.00 ms
 ^C
---- 192.168.1.3 ping statistics ---
-3 packets transmitted, 3 received, 0% packet loss, time 2037ms
-rtt min/avg/max/mdev = 0.634/0.888/1.082/0.187 ms
-pc1:~$ ip neighbor
-192.168.1.3 dev eth1 lladdr aa:c1:ab:22:3d:56 STALE 
-192.168.1.2 dev eth1 lladdr aa:c1:ab:0d:c4:52 STALE 
-3fff:172:20:20::1 dev eth0 lladdr 26:fb:84:a5:59:ce DELAY 
+--- 10.10.104.102 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.001/1.001/1.001/0.000 ms
+accounting1:~$ ping 10.10.104.103
+PING 10.10.104.103 (10.10.104.103) 56(84) bytes of data.
+64 bytes from 10.10.104.103: icmp_seq=1 ttl=64 time=1.02 ms
+64 bytes from 10.10.104.103: icmp_seq=2 ttl=64 time=0.624 ms
+^C
+--- 10.10.104.103 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 0.624/0.821/1.018/0.197 ms
+accounting1:~$ ping 10.10.102.101
+PING 10.10.102.101 (10.10.102.101) 56(84) bytes of data.
+^C
+--- 10.10.102.101 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3081ms
 ```
 
-4. Sw1 learns the MAC addresses for each host and associates a port number with each MAC address.
+5. Verify marketing1 can ping marketing2, but not any other host.
 ```
-sw1#show mac address-table 
-          Mac Address Table
-------------------------------------------------------------------
-
-Vlan    Mac Address       Type        Ports      Moves   Last Move
-----    -----------       ----        -----      -----   ---------
-   1    aac1.ab0d.c452    DYNAMIC     Et2        1       0:03:07 ago
-   1    aac1.ab22.3d56    DYNAMIC     Et3        1       0:03:03 ago
-   1    aac1.abaf.7a83    DYNAMIC     Et1        1       0:03:07 ago
-Total Mac Addresses for this criterion: 3
+marketing1:~$ ping 10.10.103.102
+PING 10.10.103.102 (10.10.103.102) 56(84) bytes of data.
+64 bytes from 10.10.103.102: icmp_seq=1 ttl=64 time=1.16 ms
+64 bytes from 10.10.103.102: icmp_seq=2 ttl=64 time=0.646 ms
+^C
+--- 10.10.103.102 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1005ms
+rtt min/avg/max/mdev = 0.646/0.902/1.158/0.256 ms
+marketing1:~$ ping 10.10.104.101
+PING 10.10.104.101 (10.10.104.101) 56(84) bytes of data.
+^C
+--- 10.10.104.101 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2048ms
 ```
-
-### Deep-Dive
-See (https://github.com/CapnCheapo/open-network-labs/tree/main/docs/deep-dives/fundamentals-address-resolution.md)
-
-## Next Steps
-
-Based on this lab, you might want to explore:
-
-- **[This Lab]** – This lab
-- **[That Lab]** – This other lab
-
-For a guided sequence, see:
-- `docs/learning-paths/fundamentals-linear.md`

@@ -5,14 +5,14 @@ Your company's systems administrator has configured the following hosts that wil
 
 | Team       | Device Name | IP Address    | Switchport |
 | ---------- | ----------- | ------------- | ---------- |
-| Sales      | sales1      | 10.10.101.100 | eth1       |
-|            | sales2      | 10.10.101.101 | eth2       |
-|            | sales3      | 10.10.101.102 | eth3       |
-| Marketing  | marketing1  | 10.10.102.100 | eth4       |
-|            | marketing2  | 10.10.102.101 | eth5       |
-| Accounting | accounting1 | 10.10.103.100 | eth6       |
-|            | accounting2 | 10.10.103.101 | eth7       |
-|            | accounting3 | 10.10.103.102 | eth8       |
+| Sales      | sales1      | 10.10.102.101 | eth1       |
+|            | sales2      | 10.10.102.102 | eth2       |
+|            | sales3      | 10.10.102.103 | eth3       |
+| Marketing  | marketing1  | 10.10.103.101 | eth4       |
+|            | marketing2  | 10.10.103.102 | eth5       |
+| Accounting | accounting1 | 10.10.104.101 | eth6       |
+|            | accounting2 | 10.10.104.102 | eth7       |
+|            | accounting3 | 10.10.104.103 | eth8       |
 
 ## Tasks
 1. Configure the appropriate VLANs on sw1.

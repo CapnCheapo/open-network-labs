@@ -58,4 +58,5 @@ things up beyond the octet boundary, it's a common mistake for somebody to get t
 introduce subtle accessibility problems. 
 
 ## Suggested Resources
-- TBD
+- CCNA 200-301 Official Cert Guide, Volume 1, Chapter 11 
+- [Linux IP Command Examples](https://www.cyberciti.biz/faq/linux-ip-command-examples-usage-syntax/#4)

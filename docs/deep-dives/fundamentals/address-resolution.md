@@ -104,4 +104,5 @@ there is no traffic crossing, the switch may not have a MAC address for the devi
 not very "chatty", they pay us the big bucks to make the final call on which it is!)
 
 ## Suggested Resources
-- TBD
+- CCNA 200-301 Official Cert Guide, Volume 1, Chapters 1, 2, 3, 5
+
