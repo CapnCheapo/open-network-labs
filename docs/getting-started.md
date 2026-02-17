@@ -12,6 +12,7 @@ grab everything at once is to use their quick setup script.
 | Cisco IOU | Latest | https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free |
 | Cisco IOU L2 | Latest | https://software.cisco.com/download/home/286193282/type/286326381/release/CML-Free |
 | Cisco XRd | Latest | https://software.cisco.com/download/home/286331236/type/280805694/release/25.4.1 |
+
 Arista cEOS can be downloaded for free after creating an Arista account. The Cisco images are subject to 
 various license restrictions. **Don't waste your time asking us for images, we will not provide them!**
 
