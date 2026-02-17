@@ -36,49 +36,6 @@ Each lab aims to:
 
 If you can explain *why* the lab works when you’re done, it succeeded.
 
-
-## Lab Structure
-
-Each lab follows a consistent structure:
-
-```
-lab-name/
-├── lab.meta.yml # Metadata (topics, difficulty, prerequisites, etc.)
-├── starter/ # Starting point for the learner
-│ ├── topology.clab.yml
-│ ├── configs/
-│ └── README.md
-├── solution/ # One possible completed solution
-│ ├── topology.clab.yml
-│ ├── configs/
-│ └── README.md
-└── check/ # (Optional) Validation scripts
-└── validate.sh
-```
-
-### Starter
-The **starter** directory gives you:
-- a fully deployed topology
-- baseline configurations
-- no hidden prerequisites
-
-Your job is to implement the required behavior.
-
-### Solution
-The **solution** directory shows:
-- one working implementation
-- key configuration choices
-- verification commands and example outputs
-
-Solutions are intentionally *not* optimized for minimal config — clarity wins.
-
-### Validation (optional)
-Some labs may include lightweight validation scripts that check outcomes
-(e.g., reachability, protocol state, route presence).
-
-Validation checks **results**, not exact configuration syntax.
-
-
 ## Topics Covered
 
 Over time, labs will span areas such as:
@@ -97,18 +54,19 @@ Difficulty is indicated via metadata, not folder placement.
 
 ## Requirements
 
-Most labs are built using:
+Labs are built using:
 - [containerlab](https://containerlab.dev/)
 - [labhost-lite](https://github.com/CapnCheapo/labhost-lite) a freely-available docker container to simulate end-hosts.
 - containerized network operating systems or routing stacks
 
-**Network Device images are not distributed with this repository-- do not ask us for them!** 
 Each lab README documents what images are required.
 
 ## Where to Start
 
-Check out `docs/learning-paths` for curated lists of topics sorted by category. The `basic-l2-connectivity` lab is the perfect starting point for new 
-and seasoned network professionals alike.
+See `docs/getting-started.md` for help installing the prerequisites needed to run these labs.
+
+Check out `docs/learning-paths` for curated lists of topics sorted by category. The `basic-l2-connectivity` lab is the perfect starting point for 
+new and seasoned network professionals alike.
 
 ## Contributing
 
