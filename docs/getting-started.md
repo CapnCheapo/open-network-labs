@@ -4,6 +4,7 @@
 grab everything at once is to use their quick setup script.
 
 2. Install the necessary images. Commonly-used images are installed as follows:
+
 | Image | Version | How to obtain |
 | ----- | ------- | ------------- |
 | labhost-lite | Latest | docker pull ghcr.io/capncheapo/labhost-lite:1.0.1 |
@@ -23,8 +24,8 @@ git clone git@github.com:CapnCheapo/open-network-labs.git
 ```
 open-network-labs/
 ├── docs
-```
 └── labs
+```
 
 5. Each lab follows a consistent structure:
 ```
