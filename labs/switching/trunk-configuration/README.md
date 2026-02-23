@@ -14,8 +14,8 @@ graph LR
   classDef switch fill:#e3f2fd,stroke:#1565c0,stroke-width:2px;
   classDef host fill:#f1f8e9,stroke:#33691e;
 
-  class sw1,sw2 switch
-  class sales1,sales2,marketing1,marketing2,accounting1,accounting2 host
+  class sw1,sw2 switch;
+  class sales1,sales2,marketing1,marketing2,accounting1,accounting2 host;
 
   sw1 ---|"eth1"| sales1
   sw1 ---|"eth2"| marketing1
