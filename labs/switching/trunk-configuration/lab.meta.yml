@@ -1,0 +1,48 @@
+title: Trunk Configuration
+
+authors: 
+  - name: CapnCheapo
+
+summary: >
+  Allow hosts in various VLANs to communicate with similar hosts connected to another switch.
+
+category: switching
+subcategory: trunking
+
+difficulty: 1
+estimated_time: 15m
+
+topics:
+  - layer-2
+  - ethernet
+  - vlans
+  - trunking
+
+prerequisites: []
+
+platforms:
+  - arista-ceos
+  - cisco-iol-l2
+  - generic-l2-switch
+
+images:
+  - arista cEOS (user-supplied, official vendor download required)
+  - labhost-lite (ghcr.io/capncheapo/labhost-lite:1.0.1)
+
+objectives:
+  - Group functional areas by VLAN and decide on a numbering scheme
+  - VLAN names should match functional areas
+  - Make appropriate configuration changes on the switch
+  - Validate connectivity using basic network testing tools
+
+verification:
+  - Hosts in one functional area can ping each other similar hosts on the other switch
+
+outcomes:
+  - Understand how trunking allows multiple VLANs to cross a single link_local_ips: 
+  - Learn basic switch configuration
+  - Reinforce basic testing tools
+
+notes:
+  - Layer 3 support has been disabled on this switch and should not be configured
+  - The same principles apply across most enterprise switching platforms
