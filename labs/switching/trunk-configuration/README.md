@@ -20,7 +20,7 @@ graph LR
   sw1 ---|"eth1"| sales1
   sw1 ---|"eth2"| marketing1
   sw1 ---|"eth3"| accounting1
-  sw1 ---["eth4"] sw2 ---["eth4"]
+  sw1 ---["eth4"] sw2
 
   sw2 ---["eth1"] sales2
   sw2 ---["eth2"] marketing2
