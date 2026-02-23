@@ -17,9 +17,9 @@ graph LR
   class sw1,sw2 switch
   class sales1,sales2,marketing1,marketing2,accounting1,accounting2 host
 
-  sw1 ---|"eth1"| sales1
-  sw1 ---|"eth2"| marketing1
-  sw1 ---|"eth3"| accounting1
+  sw1 ---["eth1"] sales1
+  sw1 ---["eth2"] marketing1
+  sw1 ---["eth3"] accounting1
   sw1 ---["eth4"] sw2
 
   sw2 ---["eth1"] sales2
