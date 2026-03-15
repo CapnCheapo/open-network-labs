@@ -22,7 +22,7 @@ IP address. It suggests 192.168.1.100/24 and 192.168.1.101/24. Who are you to ar
 
 ## Topology
 ```mermaid
-graph TD
+graph LR
   lindapc---bobpc
 ```
 
