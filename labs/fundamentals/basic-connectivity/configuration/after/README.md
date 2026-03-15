@@ -1,4 +1,15 @@
 # basic-connectivity
+## Topology
+```mermaid
+graph LR
+  lindapc(lindapc)
+  bobpc(bobpc)
+
+  lindapc --- bobpc
+
+  class lindapc,bobpc host
+```
+
 ## Solution
 IP address 192.168.1.100/24 was assigned to lindapc and 192.168.1.101/24 to bobpc.
 

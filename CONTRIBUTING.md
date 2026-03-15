@@ -43,34 +43,18 @@ Submissions that do not follow this structure may be requested to be revised.
 
 ---
 
-## Lab Metadata
+## Before vs After
 
-Each lab must include a `lab.meta.yml` file with, at minimum:
-
-- `title`
-- `summary`
-- `topics`
-- `difficulty` (1–5)
-- `estimated_time`
-- `prerequisites`
-- `outcomes`
-
-Metadata should describe **what the learner gains**, not what commands they type.
-
----
-
-## Starter vs Solution
-
-### Starter
-The **starter** directory must:
+### Before
+The **before** directory must:
 - deploy successfully using containerlab
 - include only baseline configuration
 - not already satisfy the lab objectives
 
 The learner should have real work to do.
 
-### Solution
-The **solution** directory must:
+### After
+The **after** directory must:
 - fully satisfy all lab objectives
 - include verification commands
 - show example output where practical

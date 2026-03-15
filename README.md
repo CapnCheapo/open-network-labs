@@ -28,10 +28,11 @@ These labs are not meant to be “click-by-click” walkthroughs or exam crammin
 
 Each lab aims to:
 - present a realistic but focused topology
-- give you a working starting point (“starter”)
+- give you a working starting point (“before”)
 - define clear outcomes rather than exact commands
+- provide configuration, troubleshooting, and analysis options
 - encourage exploration, verification, and troubleshooting
-- show one *possible* solution, not the only solution
+- show one *possible* solution ("after"), not the only solution
 - provide optional further reading, both internally written and links to external books, blogs, and RFCs
 
 If you can explain *why* the lab works when you’re done, it succeeded.
@@ -49,8 +50,6 @@ Over time, labs will span areas such as:
 - Automation and observability
 - Security
 
-Difficulty is indicated via metadata, not folder placement.
-
 
 ## Requirements
 
@@ -65,7 +64,7 @@ Each lab README documents what images are required.
 
 See `docs/getting-started.md` for help installing the prerequisites needed to run these labs.
 
-Check out `docs/learning-paths` for curated lists of topics sorted by category. The `basic-l2-connectivity` lab is the perfect starting point for 
+Check out `docs/learning-paths` for curated lists of topics sorted by category. The `basic-connectivity` configuration lab is the perfect starting point for 
 new and seasoned network professionals alike.
 
 ## Contributing
