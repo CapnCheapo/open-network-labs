@@ -1,0 +1,14 @@
+name: basic-connectivity
+
+topology:
+  nodes:
+    lindapc:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:latest
+      group: server
+    bobpc:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:latest
+      group: server
+  links:
+    - endpoints: ["lindapc:eth1", "bobpc:eth1"]

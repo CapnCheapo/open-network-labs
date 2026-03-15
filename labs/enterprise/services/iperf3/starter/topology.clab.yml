@@ -1,0 +1,35 @@
+name: iperf3
+
+topology:
+  nodes:
+    sw1:
+      kind: arista_ceos
+      image: ceos:4.34.4M
+      group: switch
+      startup-config: configs/sw1.cfg
+    sales1:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.102.101/24 dev eth1
+        - sudo ip route replace default via 10.10.102.1 dev eth1
+    marketing1:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.103.101/24 dev eth1
+        - sudo ip route replace default via 10.10.103.1 dev eth1
+    accounting1:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:1.0.1
+      group: server
+      exec: 
+        - sudo ip addr replace 10.10.104.101/24 dev eth1
+        - sudo ip route replace default via 10.10.104.1 dev eth1
+
+  links:
+    - endpoints: ["sw1:eth1", "sales1:eth1"]
+    - endpoints: ["sw1:eth2", "marketing1:eth1"]
+    - endpoints: ["sw1:eth3", "accounting1:eth1"]

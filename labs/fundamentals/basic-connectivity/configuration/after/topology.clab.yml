@@ -1,0 +1,19 @@
+name: basic-connectivity
+
+topology:
+  nodes:
+    lindapc:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:latest
+      group: server
+      exec: 
+        - sudo ip addr add 192.168.1.100/24 dev eth1
+    bobpc:
+      kind: linux
+      image: ghcr.io/capncheapo/labhost-lite:latest
+      group: server
+      exec: 
+        - sudo ip addr add 192.168.1.101/24 dev eth1
+
+  links:
+    - endpoints: ["lindapc:eth1", "bobpc:eth1"]
